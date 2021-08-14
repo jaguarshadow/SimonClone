@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Incorrect.wav-0852d9867e724a7e83c46030396adeff.sample"
+
+[deps]
+
+source_file="res://simon/sounds/Incorrect.wav"
+dest_files=[ "res://.import/Incorrect.wav-0852d9867e724a7e83c46030396adeff.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,214 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://simon/Base.cs" type="Script" id=1]
+[ext_resource path="res://simon/sounds/Button3.wav" type="AudioStream" id=2]
+[ext_resource path="res://simon/sounds/Button1.wav" type="AudioStream" id=3]
+[ext_resource path="res://simon/sounds/Button2.wav" type="AudioStream" id=4]
+[ext_resource path="res://simon/sounds/Button4.wav" type="AudioStream" id=5]
+[ext_resource path="res://simon/Simon.cs" type="Script" id=6]
+[ext_resource path="res://simon/Kenney Thick.ttf" type="DynamicFontData" id=7]
+
+[sub_resource type="Gradient" id=1]
+colors = PoolColorArray( 0, 0, 0, 1, 0, 0, 0, 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 11
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 7 )
+
+[sub_resource type="Environment" id=5]
+background_mode = 4
+glow_enabled = true
+glow_intensity = 0.5
+glow_strength = 0.5
+glow_blend_mode = 0
+glow_bicubic_upscale = true
+
+[node name="Simon" type="Node2D"]
+position = Vector2( 480, 260 )
+script = ExtResource( 6 )
+
+[node name="Background" type="ColorRect" parent="."]
+margin_left = -480.0
+margin_top = -260.0
+margin_right = 560.0
+margin_bottom = 360.0
+mouse_filter = 2
+color = Color( 0.0313726, 0.0313726, 0.0313726, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Base" type="Polygon2D" parent="."]
+position = Vector2( -540, -220 )
+scale = Vector2( 1.5, 1.5 )
+color = Color( 0.129412, 0.117647, 0.117647, 1 )
+polygon = PoolVector2Array( 210, 100, 310, 20, 450, 20, 550, 100, 550, 240, 450, 320, 310, 320, 210, 240 )
+script = ExtResource( 1 )
+
+[node name="Red" type="Area2D" parent="Base"]
+position = Vector2( 290, 80 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Base/Red"]
+position = Vector2( -520, -80 )
+polygon = PoolVector2Array( 540, 40, 600, 40, 600, 100, 580, 100, 520, 140, 520, 160, 460, 160, 460, 100 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Base/Red"]
+position = Vector2( -20, 0 )
+color = Color( 0.117647, 0.027451, 0, 1 )
+offset = Vector2( -275, -125 )
+polygon = PoolVector2Array( 235, 205, 295, 205, 295, 185, 355, 145, 375, 145, 375, 85, 315, 85, 235, 145 )
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="Base/Red"]
+position = Vector2( 7.62939e-06, 0 )
+stream = ExtResource( 3 )
+
+[node name="Blue" type="Area2D" parent="Base"]
+position = Vector2( 470, 80 )
+scale = Vector2( -1, 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Base/Blue"]
+position = Vector2( -520, -80 )
+polygon = PoolVector2Array( 540, 40, 600, 40, 600, 100, 580, 100, 520, 140, 520, 160, 460, 160, 460, 100 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Base/Blue"]
+position = Vector2( -20, 0 )
+color = Color( 0, 0.0509804, 0.0901961, 1 )
+offset = Vector2( -275, -125 )
+polygon = PoolVector2Array( 235, 205, 295, 205, 295, 185, 355, 145, 375, 145, 375, 85, 315, 85, 235, 145 )
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="Base/Blue"]
+position = Vector2( 7.62939e-06, 0 )
+stream = ExtResource( 4 )
+
+[node name="Yellow" type="Area2D" parent="Base"]
+position = Vector2( 470, 260 )
+scale = Vector2( -1, -1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Base/Yellow"]
+position = Vector2( -520, -80 )
+polygon = PoolVector2Array( 540, 40, 600, 40, 600, 100, 580, 100, 520, 140, 520, 160, 460, 160, 460, 100 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Base/Yellow"]
+position = Vector2( -20, 0 )
+color = Color( 0.172549, 0.152941, 0, 1 )
+offset = Vector2( -275, -125 )
+polygon = PoolVector2Array( 235, 205, 295, 205, 295, 185, 355, 145, 375, 145, 375, 85, 315, 85, 235, 145 )
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="Base/Yellow"]
+position = Vector2( 7.62939e-06, 0 )
+stream = ExtResource( 2 )
+
+[node name="Green" type="Area2D" parent="Base"]
+position = Vector2( 290, 260 )
+scale = Vector2( 1, -1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Base/Green"]
+position = Vector2( -520, -80 )
+polygon = PoolVector2Array( 540, 40, 600, 40, 600, 100, 580, 100, 520, 140, 520, 160, 460, 160, 460, 100 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Base/Green"]
+position = Vector2( -20, 0 )
+color = Color( 0, 0.105882, 0.0431373, 1 )
+offset = Vector2( -275, -125 )
+polygon = PoolVector2Array( 235, 205, 295, 205, 295, 185, 355, 145, 375, 145, 375, 85, 315, 85, 235, 145 )
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="Base/Green"]
+position = Vector2( 7.62939e-06, 0 )
+stream = ExtResource( 5 )
+
+[node name="Center" type="Area2D" parent="Base"]
+position = Vector2( 370, 180 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Base/Center"]
+position = Vector2( 20, -60 )
+scale = Vector2( 0.993151, 0.907173 )
+color = Color( 0.0784314, 0.0705882, 0.0705882, 1 )
+polygon = PoolVector2Array( -80.5517, 44.093, -20.1379, 0, 0, 0, 60.4138, 44.093, 60.4138, 66.1395, 0, 110.233, -20.1379, 110.233, -80.5517, 66.1395 )
+
+[node name="Line2D" type="Line2D" parent="Base/Center/Polygon2D"]
+position = Vector2( 8.05524, 4.40933 )
+points = PoolVector2Array( -88.607, 39.6837, -28.1932, -4.40933, -8.05524, -4.40933, 52.3586, 39.6837, 52.3586, 61.7302, -8.05524, 105.823, -28.1932, 105.823, -88.607, 61.7302, -88.607, 39.6837, -28.1932, -4.40933 )
+width = 7.0
+default_color = Color( 0, 0, 0, 1 )
+gradient = SubResource( 1 )
+
+[node name="Label" type="Label" parent="Base/Center"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -49.0
+margin_top = -31.0
+margin_right = 71.0
+margin_bottom = 13.0
+custom_fonts/font = SubResource( 2 )
+text = "Game Over
+"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Base/Center"]
+position = Vector2( 20, -60 )
+scale = Vector2( 0.993151, 0.907173 )
+polygon = PoolVector2Array( -80.5517, 44.093, -20.1379, 0, 0, 0, 60.4138, 44.093, 60.4138, 66.1395, 0, 110.233, -20.1379, 110.233, -80.5517, 66.1395 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="ScoreLabel" type="Label" parent="."]
+modulate = Color( 0.75, 0.75, 0.75, 1 )
+margin_left = -400.0
+margin_top = -40.0
+margin_right = -314.0
+margin_bottom = -22.0
+custom_fonts/font = SubResource( 3 )
+text = "Score"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score" type="Label" parent="ScoreLabel"]
+margin_left = 20.0
+margin_top = 40.0
+margin_right = 60.0
+margin_bottom = 79.0
+custom_fonts/font = SubResource( 4 )
+text = "0
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BestScoreLabel" type="Label" parent="."]
+modulate = Color( 0.75, 0.75, 0.75, 1 )
+margin_left = -400.0
+margin_top = 80.0
+margin_right = -314.0
+margin_bottom = 98.0
+custom_fonts/font = SubResource( 3 )
+text = "Best"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score" type="Label" parent="BestScoreLabel"]
+margin_left = 20.0
+margin_top = 40.0
+margin_right = 60.0
+margin_bottom = 79.0
+custom_fonts/font = SubResource( 4 )
+text = "0
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Glow" type="WorldEnvironment" parent="."]
+environment = SubResource( 5 )
